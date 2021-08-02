@@ -48,13 +48,13 @@ server.get('/lat',(req,res) => {
 }) ;
 
 
-// //http://localhost:3001/lon (/lon === route )
-// server.get('/lon',(req,res) => {
-// let longitudinal=locData.find(item => {
-// return item.lon;
-// });
-// res.send(longitudinal);
-// });
+//http://localhost:3001/lon (/lon === route )
+server.get('/lon',(req,res) => {
+let longitudinal=locData.find(item => {
+return item.lon;
+});
+res.send(longitudinal);
+});
 //////////////////////////////////////////////////////////
 server.get('*',(req,res)=> {
     res.status(404).send('not found page at all please check the route')
