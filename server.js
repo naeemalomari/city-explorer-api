@@ -25,12 +25,13 @@ server.get("/weather", (req, res) => {
   const lat = req.query.lat;
   const lon = req.query.lon;
   const city_name = req.query.searchQuery.toLocaleLowerCase();
+console.log(city_name,lon,lat);
 
 
-  let result = locData.find(item => item.lat === lat && item.lon === lon && item.city_name.toLocaleLowerCase() === city_name ? item : "" );
-    result  ? res.send(forCastObject(result)) : res.status(500).send("PAGE NOT FOUND FIND YOUR ERROR");
+  let result = locData.find(item => item.lat == lat && item.lon == lon && item.city_name.toLocaleLowerCase() == city_name ? item : "" );
+    result  ? res.send(forCastObject(result)) : res.status(404).send("PAGE NOT FOUND FIND YOUR ERROR");
     console.log(result);
-  
+  console.log(lat);
 
 });
 
