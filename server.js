@@ -58,8 +58,8 @@ function getDataHandler(req, res) {
     const lon=req.query.lon;
     const lat=req.query.lat
 let allDays=[];
-  const URL = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city_name}&lat=${lat}&lon=${lon},NC&key=ef76d2d5b1dd408aba81b82f3cd5e899 `;
 
+  const URL = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city_name}&lat=${lat}&lon=${lon},NC&key=ef76d2d5b1dd408aba81b82f3cd5e899 `;
   axios
     .get(URL)
     .then(result => {
