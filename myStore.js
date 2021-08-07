@@ -3,11 +3,14 @@
 
 const axios=require('axios')
 
-
+let myMemory={};
 
 function moviesHandler(req, res) {
     const city_name = req.query.city_name;
-  
+if(myMemory[city_name] !== undefined){
+
+    res.send(myMemory[city_name])
+} else { 
     const URL = `https://api.themoviedb.org/3/search/movie?api_key=f8c02b501277f3b5d63116ef7f655b65&query=${city_name} `;
   
     axios
@@ -15,6 +18,7 @@ function moviesHandler(req, res) {
       .then(finalResult => {
         let moviesArray = finalResult.data.results.map(element => new Movies(element))  
       //   console.log(finalResult);
+      myMemory[city_name] = moviesArray;
         res.send(moviesArray);
       })
       .catch((err) => {
@@ -22,8 +26,7 @@ function moviesHandler(req, res) {
      });}
 
 
-
-
+}
 class Movies {
     constructor(title,overview,vote_average,vote_count,poster_path,popularity,release_date) {
       this.title = title.title;
