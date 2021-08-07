@@ -1,4 +1,5 @@
 'use strict';
+const axios=require('axios')
 
 
 function getDataHandler(req, res) {
@@ -25,6 +26,14 @@ let allDays=[];
       res.send(err);
     });
 }
+class Weather {
+    constructor(
+        description,datetime
+    ) {
 
+      this.description=description;
+      this.datetime=datetime;
+    }
+  }
 
 module.exports=getDataHandler;
