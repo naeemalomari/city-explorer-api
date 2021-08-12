@@ -10,7 +10,7 @@ const express = require("express");
 const server = express();
 const axios = require("axios");
 const locData = require("./weather.json");
-const PORT = 3001;
+const PORT = process.env.PORT;
 server.use(cors());
 
 //My Root Route : http://localhost:3001/
